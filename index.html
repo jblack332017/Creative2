@@ -2,6 +2,26 @@
 <html>
 <title>Birth Events</title>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif;
+        }
+body, html {height: 100%}
+.bgimg {
+    background-image: url('background.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+    overflow: scroll;
+}
+.w3-display-middle{
+  text-align: center;
+  height: 100%;
+  margin-top:30px;
+}
+</style>
 
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -58,10 +78,23 @@ $(document).ready(function() {
 
 <body>
 	
-</body>
-<input id="bday" type="date" name="bday">
+
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    <img src="gun-blaster.png" alt="logo" style="width: 10%">
+  </div>
+  <div class="w3-display-middle">
+ 	<input id="bday" type="date" name="bday">
 <input id="searchButton" type="submit" value="Submit">
 <div id="results"></div>
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+  </div>
+</div>
+
+</body>
+
 
 </html>
 
