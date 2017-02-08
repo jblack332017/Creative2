@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<title>Birth Events</title>
+<meta charset="UTF-8">
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script> 
+$(document).ready(function() {
+	$("#searchButton").click(function(e){
+		$("#results").html("");
+		bday = $("#bday").val();
+		var bday = bday.replace(/\-/g, '');
+
+
+		console.log(bday);
+		var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+		url += '?' + $.param({
+		  'api-key': "14653ac549bc46c6af53c1f5ce62a6ec",
+		  'begin_date': bday,
+		  'end_date': bday
+		});
+		$.ajax({
+			  url: url,
+			  method: 'GET',
+			}).done(function(parsed_json) {
+			  console.log(parsed_json);
+			  $.each(parsed_json['response']['docs'], function(i,item) {
+      			var doc = parsed_json['response']['docs'][i];
+      			var headline = doc['headline']['main'];
+      			var paragraph = doc['lead_paragraph'];
+
+
+
+      			var $article = $("<div>", {id: "", "class": "article"});
+      			
+      			var $headline = $("<div>",{id:"","class":"headline"});
+      			$headline.html(headline);
+      			$article.append($headline);
+
+      			var $paragraph = $("<div>",{id:"","class":"paragraph"});
+      			$paragraph.html(paragraph);
+      			$article.append($paragraph);
+
+
+
+				$("#results").append($article);
+
+				});
+			}).fail(function(err) {
+			  throw err;
+		});
+
+	});
+
+});
+</script>
+
+<body>
+	
+</body>
+<input id="bday" type="date" name="bday">
+<input id="searchButton" type="submit" value="Submit">
+<div id="results"></div>
+
+</html>
+
+
+
+
