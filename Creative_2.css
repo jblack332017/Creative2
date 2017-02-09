@@ -1,0 +1,23 @@
+#searchButton {
+  cursor: pointer;
+  border-style: outset;
+}
+
+#searchButton:hover {
+  background-color: rgb(200,200,200);
+}
+
+.headline {
+  border: 1px solid black;
+  font-family: Cheltenham;
+  font-size: 50px;
+  background-color: rgba(255, 255, 255, .6);
+  color: black;
+}
+
+.paragraph {
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, .5);
+  color: black;
+}
