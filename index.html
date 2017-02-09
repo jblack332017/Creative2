@@ -68,7 +68,11 @@ $(document).ready(function() {
       			var doc = parsed_json['response']['docs'][i];
       			var headline = doc['headline']['main'];
       			var paragraph = doc['lead_paragraph'];
+      			var web_url = doc['web_url'];
 
+
+      			var $link = $("<a>", {id: "", "class": "link"});
+      			$link.attr("href", web_url);
 
 
       			var $article = $("<div>", {id: "", "class": "article w3-half"});
@@ -85,8 +89,8 @@ $(document).ready(function() {
       			$("#date").html($("#bday").val());
 
 
-
-				$("#results").append($article);
+      			$link.append($article);
+				$("#results").append($link);
 
 				});
 			}).fail(function(err) {
